@@ -14,14 +14,14 @@ public class ModelProgram extends GL20Program
 		// Call super constructor
 		super
 		(
-            "uniform highp mat4 ModelViewProjectionMatrix;\n" +
-            "uniform highp vec3 mPosition;\n" +
-            "uniform highp vec3 mRotation;\n" +
-            "attribute highp vec3 vPosition;\n" +
-            "attribute lowp vec4 vColor;\n" +
-            "attribute lowp vec2 vTexture;\n" +
-            "varying lowp vec4 fColor;\n" +
-			"varying lowp vec2 fTexture;\n" +
+            "uniform mat4 ModelViewProjectionMatrix;\n" +
+            "uniform vec3 mPosition;\n" +
+            "uniform vec3 mRotation;\n" +
+            "attribute vec3 vPosition;\n" +
+            "attribute vec4 vColor;\n" +
+            "attribute vec2 vTexture;\n" +
+            "varying vec4 fColor;\n" +
+			"varying vec2 fTexture;\n" +
             "void main(void) {\n" +
             "\tfloat cosx=cos(mRotation.x);\n" +
             "\tfloat sinx=sin(mRotation.x);\n" +
@@ -54,8 +54,8 @@ public class ModelProgram extends GL20Program
             "}"
 			,
 			"uniform sampler2D fTextureSampler;\n" +
-			"varying lowp vec4 fColor;\n" +
-			"varying lowp vec2 fTexture;\n" +
+			"varying vec4 fColor;\n" +
+			"varying vec2 fTexture;\n" +
 		    "void main(void) {\n" +
 		    "\tvec4 color = fColor * texture2D(fTextureSampler, fTexture);\n" +
 		    "\tif (color.a == 0.0) discard;" +

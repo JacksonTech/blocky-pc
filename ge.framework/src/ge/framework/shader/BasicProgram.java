@@ -14,12 +14,12 @@ public class BasicProgram extends GL20Program
 		// Call super constructor
 		super
 		(
-            "uniform highp mat4 ModelViewProjectionMatrix;\n" +
-            "attribute highp vec3 vPosition;\n" +
-            "attribute lowp vec4 vColor;\n" +
-            "attribute lowp vec2 vTexture;\n" +
-            "varying lowp vec4 fColor;\n" +
-			"varying lowp vec2 fTexture;\n" +
+            "uniform mat4 ModelViewProjectionMatrix;\n" +
+            "attribute vec3 vPosition;\n" +
+            "attribute vec4 vColor;\n" +
+            "attribute vec2 vTexture;\n" +
+            "varying vec4 fColor;\n" +
+			"varying vec2 fTexture;\n" +
             "void main(void) {\n" +
             "\tfColor = vColor;\n" +
             "\tfTexture = vTexture;\n" +
@@ -27,8 +27,8 @@ public class BasicProgram extends GL20Program
             "}"
 			,
 			"uniform sampler2D fTextureSampler;\n" +
-			"varying lowp vec4 fColor;\n" +
-			"varying lowp vec2 fTexture;\n" +
+			"varying vec4 fColor;\n" +
+			"varying vec2 fTexture;\n" +
 		    "void main(void) {\n" +
 		    "\tvec4 color = fColor * texture2D(fTextureSampler, fTexture);\n" +
 		    "\tif (color.a == 0.0) discard;" +
